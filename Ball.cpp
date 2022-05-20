@@ -20,7 +20,10 @@ void Ball::Draw() {
 }
 
 void Ball::AbsAll() {
-
+	direction_x *= -1;
+	direction_y *= -1;
+	RandSpeedX();
+	RandSpeedY();
 }
 
 void Ball::MovePosX() {
@@ -33,22 +36,18 @@ void Ball::MovePosY() {
 
 void Ball::DirectionLeft() {
 	direction_x = -1;
-	RandSpeedX();
 }
 
 void Ball::DirectionUp() {
 	direction_y = -1;
-	RandSpeedY();
 }
 
 void Ball::DirectionRight() {
 	direction_x = 1;
-	RandSpeedX();
 }
 
 void Ball::DirectionDown() {
 	direction_y = 1;
-	RandSpeedY();
 }
 
 void Ball::RandSpeedX() {
