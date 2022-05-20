@@ -5,8 +5,9 @@
 class Ball
 {
 private:
-	const int k_max_speed = 30;
-	const int k_min_speed = 10;
+	const int kMaxSpeed = 30;
+	const int kMinSpeed = 10;
+
 	int speed_x;
 	int speed_y;
 	int pos_x;
@@ -16,24 +17,35 @@ private:
 	int color_b;
 	int radius;
 
+	int direction_x = 1;
+	int direction_y = 1;
+
 public:
 	Ball(int init_speed_x, int init_speed_y, int init_pos_x, int init_pos_y, 
 		int init_color_r, int init_color_g, int init_color_b, int init_radius);
 
-	void draw();
+	void Draw();
 
-	void move_pos_x();
+	void MovePosX();
 
-	void move_pos_y();
+	void MovePosY();
 
-	void abs_all();
+	void AbsAll();
 
-	void abs_speed_x();
+	void DirectionUp();
 
-	void abs_speed_y();
+	void DirectionDown();
 
-	void rand_speed_x();
+	void DirectionLeft();
 
-	void rand_speed_y();
+	void DirectionRight();
+
+	void RandSpeedX();
+
+	void RandSpeedY();
+
+	int GetPosX();
+
+	int GetPosY();
 };
 

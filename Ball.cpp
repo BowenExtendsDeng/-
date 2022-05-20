@@ -12,41 +12,57 @@ Ball::Ball(int init_speed_x, int init_speed_y, int init_pos_x, int init_pos_y,
 	radius = init_radius;
 }
 
-void Ball::draw() {
-	move_pos_x();
-	move_pos_y();
+void Ball::Draw() {
+	MovePosX();
+	MovePosY();
 	setfillcolor(RGB(color_r, color_g, color_b));
 	solidcircle(pos_x, pos_y, radius);
 }
 
-void Ball::abs_all() {
-	abs_speed_x();
-	abs_speed_y();
+void Ball::AbsAll() {
+
 }
 
-void Ball::move_pos_x() {
-	pos_x += speed_x;
+void Ball::MovePosX() {
+	pos_x = pos_x + speed_x * direction_x;
 }
 
-void Ball::move_pos_y() {
-	pos_y += speed_y;
+void Ball::MovePosY() {
+	pos_y = pos_y + speed_y * direction_y;
 }
 
-void Ball::abs_speed_x() {
-	speed_x *= -1;
-	rand_speed_x();
+void Ball::DirectionLeft() {
+	direction_x = -1;
+	RandSpeedX();
 }
 
-void Ball::abs_speed_y() {
-	speed_y *= -1;
-	rand_speed_y();
+void Ball::DirectionUp() {
+	direction_y = -1;
+	RandSpeedY();
 }
 
-void Ball::rand_speed_x() {
-	speed_x = (rand() % (k_max_speed - k_min_speed)) + k_min_speed;
+void Ball::DirectionRight() {
+	direction_x = 1;
+	RandSpeedX();
 }
 
-void Ball::rand_speed_y() {
-	speed_y = (rand() % (k_max_speed - k_min_speed)) + k_min_speed;
+void Ball::DirectionDown() {
+	direction_y = 1;
+	RandSpeedY();
 }
 
+void Ball::RandSpeedX() {
+	speed_x = (rand() % (kMaxSpeed - kMinSpeed)) + kMinSpeed;
+}
+
+void Ball::RandSpeedY() {
+	speed_y = (rand() % (kMaxSpeed - kMinSpeed)) + kMinSpeed;
+}
+
+int Ball::GetPosX() {
+	return pos_x;
+}
+
+int Ball::GetPosY() {
+	return pos_y;
+}
